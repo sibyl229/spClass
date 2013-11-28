@@ -66,19 +66,27 @@ getTermFreqs <- function(emailText){
 }
 
 dtfFeatures <- function(x, tokens){
-  cleanText <- prepEmailTokens(x$emailText)
-  tfs <- extractFreq(getTermFreqs(cleanText),
-                     tokens)
+  features <- dtfFeatures_help(x$emailText, tokens)
+  return(features)
+}
+
+dtfFeatures_help <- function(emailText, tokens){
+  cleanText <- prepEmailTokens(emailText)
+  tfAll <- getTermFreqs(cleanText)
+  tfTokens <- extractFreq(tfAll, tokens)
+  
+  tfTokensAug <- (tfTokens * 0.5 / max(tfAll)) + 0.5
+  print(tfTokensAug)
   result <- c(
-    tokenCount=length(strsplit_space_tokenizer(x$emailText)),
-    tfs
+    tokenCount=length(strsplit_space_tokenizer(emailText)),
+    tfTokensAug
   )
   result <- rbind(result)
   return(result)
 }
 
 computeDtfIdf <- function(tf){
-  idf <- log(length(tf) / sum(tf > 0))
+  idf <- log(length(tf) / sum(tf > 0.5)) #where tf = 0.5 is the base line of augmented tf
   tfIdf <- tf * idf
   return(tfIdf)
 }
@@ -106,10 +114,10 @@ write.csv(dtfIdf, "Dtfidf.csv")
 
 # Calculate sensitivity and specificity from confusion matrix
 evalConf <- function(conf.mtrx){
-  tp <- conf.mtrx[1,1]
-  fp <- conf.mtrx[2,1]
-  fn <- conf.mtrx[1,2]
-  tn <- conf.mtrx[2,2]
+  tn <- conf.mtrx[1,1]
+  fn <- conf.mtrx[2,1]
+  fp <- conf.mtrx[1,2]
+  tp <- conf.mtrx[2,2]
   sens <- tp / (tp+fn)
   spec <- tn / (tn+fp)
   acc <- (tp+tn) / sum(conf.mtrx)
@@ -173,57 +181,13 @@ runRF <- function(train.dat, test.dat, ...){
   return(tmp_rf)
 }
 
-runCV(dtf, runSVM)
-runCV(dtfIdf[c("label", "price_tfidf","custom_tfidf", 
-               "product_tfidf", "look_tfidf","buy_tfidf")], runSVM)
+idf_featnm <- c("label", "price_tfidf","custom_tfidf", 
+                 "product_tfidf", "look_tfidf","buy_tfidf")
 
-sentenceLength <- function(text){
-  sentences <- unlist(strsplit(text, "(\\?|\\.|\\!)", perl=TRUE))
-  sLengths <- laply(sentences, nchar)
-  return(sLengths)
-}
+(confDtf <- runCV(dtf, runSVM))
+evalConf(confDtf)
 
-countUpperCase <- function(text){
-  orig <- unlist(strsplit(text,''))
-  upper <- unlist(strsplit(toupper(text),''))
-  upcount <- sum(orig == upper)
-  return(upcount)
-}
+(confDtfIdf <- runCV(dtfIdf, runSVM))
+evalConf(confDtfIdf)
 
-nonTokenFeatures <- function(emailRaw){
-  senlens <- sentenceLength(emailRaw)
-  senLength <- mean(senlens)
-  
-  # cap letter not occuring at beginning of sentence
-  capCount <- countUpperCase(emailRaw) - length(senlens) 
-  questionCount <- length(unlist(strsplit(emailRaw,'\\?'))) - 1
-  exclaimCount <- length(unlist(strsplit(emailRaw,'\\!'))) - 1
-  feat <- data.frame(
-    senLength=senLength,
-    capCount=capCount,
-    questionCount=questionCount,
-    exclaimCount=exclaimCount
-  )
-  return(feat)
-}
-
-tokensNew <- stemDocument(c("price", "customer", "product", "look", "buy"),
-                          language='english')
-dtfNew <- adply(eDat, .margins=1, .fun=function(x, tokens){
-  featSet1 <- dtfFeatures(x, tokens)
-  featSet2 <- nonTokenFeatures(x[1,'emailText'])
-  return(cbind(featSet1, featSet2))
-}, tokens=tokensNew)
-
-dtfNew <- dtfNew[,colnames(dtfNew) != 'emailText'] # remove row number column
-dtfNew <- normalizeNumerics(dtfNew)
-runCV(dtfNew, runRF ,mtry=6,ntree=30,sampsize=40)
-runCV(dtfNew, runSVM)
-
-
-# for (i in 1:nrow(eDat)){
-#   cleanText <- prepEmailTokens(eDat[i,'emailText'])
-#   tfs <- getTermFreqs(cleanText)
-#   #print(tfs)
-# }
-# 
+ 

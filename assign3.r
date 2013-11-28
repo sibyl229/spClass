@@ -1,12 +1,16 @@
 library(tm)
 library(plyr)
+library(rpart)
+library(cvTools)
+library(kernlab)
+library(randomForest)
 
 fileName <- 'GoodnSpam.txt'
 emailRaw <- readChar(fileName, file.info(fileName)$size)
 x <- unlist(strsplit(emailRaw, "\\s*\\d+ ((Good/non-spam)|(SPAM)) emails below\\s*", perl=TRUE))
 
 splitEmails <- function(eStr){
-  emailList <- unlist(strsplit(eStr, "\\s*Email\\s+#\\d+\\s*", perl=TRUE))
+  emailList <- unlist(strsplit(eStr, "Email\\s+#\\d+\\s*", perl=TRUE))
   # remove the front of the list that doesn't contain any email
   emailList <- emailList[2:length(emailList)] 
   return(emailList)
@@ -55,15 +59,16 @@ extractFreq <- function(tf, tokens){
   return(tfSubset)
 }
 
-getTermFreqs <- function(emailText, tokens){
+getTermFreqs <- function(emailText){
   myCorpus <- Corpus(VectorSource(emailText))
   tf <- termFreq(myCorpus[[1]])
-  return(extractFreq(tf, tokens))
+  return(tf)
 }
 
 dtfFeatures <- function(x, tokens){
   cleanText <- prepEmailTokens(x$emailText)
-  tfs <- getTermFreqs(cleanText, tokens)
+  tfs <- extractFreq(getTermFreqs(cleanText),
+                     tokens)
   result <- c(
     tokenCount=length(strsplit_space_tokenizer(x$emailText)),
     tfs
@@ -96,3 +101,129 @@ write.csv(dtf, "Dtf.csv")
 
 dtfIdf <- getDtfIdfAll(dtf, tokens)
 write.csv(dtfIdf, "Dtfidf.csv")
+
+# SVM
+
+# Calculate sensitivity and specificity from confusion matrix
+evalConf <- function(conf.mtrx){
+  tp <- conf.mtrx[1,1]
+  fp <- conf.mtrx[2,1]
+  fn <- conf.mtrx[1,2]
+  tn <- conf.mtrx[2,2]
+  sens <- tp / (tp+fn)
+  spec <- tn / (tn+fp)
+  acc <- (tp+tn) / sum(conf.mtrx)
+  return(list(spec=spec, sens=sens, acc=acc))
+}
+
+
+runCV <- function(data.train, trainNPredict, ...){
+  
+  # Create specified number of folds (10)
+  set.seed(22)
+  folds <- cvFolds(nrow(dtf), K = 10)
+  
+  # Create empty confusion matrix to store results from each fold that will be run
+  conf.matrix <- NULL
+  
+  # run decision tree fitting and evaluation 10 times (number of folds), using data from each fold as test set
+  for(f in 1:10){
+    
+    # select training and test samples according to fold splits
+    train.samples <- folds$subsets[folds$which!=f,]
+    test.samples <- folds$subsets[folds$which==f,]
+    
+    # select "training" and "test" data and "test" labels for current fold
+    train.dat <- data.train[train.samples,]
+    test.dat <- data.train[test.samples,]
+    test.labels <- data.train$label[test.samples]
+    
+    # run function that train a model and test on on testing set
+    tmp <- trainNPredict(train.dat, test.dat, ...)
+    
+    if(is.null(conf.matrix)){
+      conf.matrix <- tmp
+    }else{
+      conf.matrix <-  conf.matrix + tmp
+    }
+    
+  }
+  return(conf.matrix)
+}
+
+normalizeNumerics <- function(dat){
+  x <- dat[,]
+  numCols <- laply(x, is.numeric)
+  normed <- scale(x[,numCols])
+  x[, numCols] <- normed
+  return(x)
+}
+
+runSVM <- function(train.dat, test.dat){
+  fit_svm <- ksvm(label~., train.dat, kernel='vanilladot')
+  pred_svm <- predict(fit_svm, newdata = test.dat, type='response')  
+  tmp_svm <- table(test.dat$label, pred_svm)
+  return(tmp_svm)
+}
+
+runRF <- function(train.dat, test.dat, ...){
+  fit_rf <-randomForest(label~.,train.dat, ...)
+  pred_rf <- predict(fit_rf, newdata=test.dat, type='response')
+  tmp_rf <- table(test.dat$label, pred_rf)
+  return(tmp_rf)
+}
+
+runCV(dtf, runSVM)
+runCV(dtfIdf[c("label", "price_tfidf","custom_tfidf", 
+               "product_tfidf", "look_tfidf","buy_tfidf")], runSVM)
+
+sentenceLength <- function(text){
+  sentences <- unlist(strsplit(text, "(\\?|\\.|\\!)", perl=TRUE))
+  sLengths <- laply(sentences, nchar)
+  return(sLengths)
+}
+
+countUpperCase <- function(text){
+  orig <- unlist(strsplit(text,''))
+  upper <- unlist(strsplit(toupper(text),''))
+  upcount <- sum(orig == upper)
+  return(upcount)
+}
+
+nonTokenFeatures <- function(emailRaw){
+  senlens <- sentenceLength(emailRaw)
+  senLength <- mean(senlens)
+  
+  # cap letter not occuring at beginning of sentence
+  capCount <- countUpperCase(emailRaw) - length(senlens) 
+  questionCount <- length(unlist(strsplit(emailRaw,'\\?'))) - 1
+  exclaimCount <- length(unlist(strsplit(emailRaw,'\\!'))) - 1
+  feat <- data.frame(
+    senLength=senLength,
+    capCount=capCount,
+    questionCount=questionCount,
+    exclaimCount=exclaimCount
+  )
+  return(feat)
+}
+
+tokensNew <- stemDocument(c("price", "customer", "product", "look", "buy"),
+                          language='english')
+dtfNew <- adply(eDat, .margins=1, .fun=function(x, tokens){
+  featSet1 <- dtfFeatures(x, tokens)
+  featSet2 <- nonTokenFeatures(x[1,'emailText'])
+  return(cbind(featSet1, featSet2))
+}, tokens=tokensNew)
+
+dtfNew <- dtfNew[,colnames(dtfNew) != 'emailText'] # remove row number column
+dtfNew <- normalizeNumerics(dtfNew)
+runCV(dtfNew, runRF ,mtry=6,ntree=30,sampsize=40)
+runCV(dtfNew, runSVM)
+
+
+# for (i in 1:nrow(eDat)){
+#   cleanText <- prepEmailTokens(eDat[i,'emailText'])
+#   tfs <- getTermFreqs(cleanText)
+#   #print(tfs)
+# }
+# 

@@ -9,7 +9,7 @@ strsplit_space_tokenizer <- function(x){
   return(unlist(strsplit(x, "\\W*\\s+\\W*", perl=TRUE)))
 }
 
-prepEmailTokens <- function(emailText, stopMore=c()){
+prepEmailTokens <- function(emailText, stops=stopwords("english")){
   # lower letters
   emailLower <- tolower(emailText)
   
@@ -20,13 +20,9 @@ prepEmailTokens <- function(emailText, stopMore=c()){
   stem_email <- stemDocument(strsplit_token_email, language="english")
   
   # remove words from stop word set (very frequently occuring words)
-  originalstopword <- stopwords("english")
-  mystopword <- c(originalstopword, stopMore)
-  stem_removed_email <- stem_email[!stem_email %in% mystopword]  
+  stem_removed_email <- stem_email[!stem_email %in% stops]  
   
-  # paste tokens into a document
-  document <- paste(c(stem_removed_email), collapse=" ")
-  return(document)
+  return(stem_removed_email) # a vector of all tokens
 }
 
 extractFreq <- function(tf, tokens){
@@ -48,7 +44,10 @@ dtfFeatures <- function(x, tokens){
 }
 
 dtfFeatures_help <- function(emailText, tokens){
-  cleanText <- prepEmailTokens(emailText)
+  emailTokens <- prepEmailTokens(emailText)  
+  # paste tokens into a document
+  cleanText <- paste(emailTokens, collapse=" ")
+  
   tfAll <- getTermFreqs(cleanText)
   tfTokens <- extractFreq(tfAll, tokens)
   
@@ -56,6 +55,7 @@ dtfFeatures_help <- function(emailText, tokens){
   print(tfTokensAug)
   result <- c(
     tokenCount=length(strsplit_space_tokenizer(emailText)),
+    cleanTokenCount=length(emailTokens),
     tfTokensAug
   )
   result <- rbind(result)
@@ -91,6 +91,19 @@ countUpperCase <- function(text){
   return(upcount)
 }
 
+countI <- function(rawEmail){
+  emailTokens <- strsplit_space_tokenizer(tolower(rawEmail))
+  iregex <- "(\\Ai|(i\\'\\w*))\\Z" # i, i'll, i've etc, but not idea, or hi
+  cnt <- length(grep(iregex, emailTokens, perl=TRUE, value=TRUE))
+  return(cnt)
+}
+
+countDigits <- function(email){
+  digitMatches <- gregexpr("\\d{2,}", email, perl=TRUE) # look for 2 digits or more continously
+  cnt <- length(digitMatches[[1]])
+  return(cnt)
+}
+
 nonTokenFeatures <- function(emailRaw){
   senlens <- sentenceLength(emailRaw)
   senLength <- mean(senlens)
@@ -99,11 +112,15 @@ nonTokenFeatures <- function(emailRaw){
   capCount <- countUpperCase(emailRaw) - length(senlens) 
   questionCount <- length(unlist(strsplit(emailRaw,'\\?'))) - 1
   exclaimCount <- length(unlist(strsplit(emailRaw,'\\!'))) - 1
+  iCount <- countI(emailRaw)
+  digitCount <- countDigits(emailRaw)
   feat <- data.frame(
     senLength=senLength,
     capCount=capCount,
     questionCount=questionCount,
-    exclaimCount=exclaimCount
+    exclaimCount=exclaimCount,
+    iCount=iCount,
+    digitCount=digitCount
   )
   return(feat)
 }
@@ -118,6 +135,7 @@ extraFeatures <- function(eDat, tokens){
   }, tokens=tokensNew)
     
   features <- getDtfIdfAll(features, tokens) # add DtfIdf features
+  #features <- features[,!(colnames(features) %in% tokens)] # remove tf columns
   features <- features[,colnames(features) != 'emailText'] # remove row number column
   return(features)
 

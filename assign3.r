@@ -74,6 +74,7 @@ runSVM <- function(train.dat, test.dat){
 
 runRF <- function(train.dat, test.dat, ...){
   fit_rf <-randomForest(label~.,train.dat, ...)
+
   pred_rf <- predict(fit_rf, newdata=test.dat, type='response')
 #   tmp_rf <- table(test.dat$label, pred_rf)
   return(pred_rf)
@@ -84,6 +85,7 @@ runRF <- function(train.dat, test.dat, ...){
 #                  "product_tfidf", "look_tfidf","buy_tfidf")
 
 labeledFeatures <- read.csv('labeledFeatures.csv')
+labeledFeatures <- normalizeNumerics(labeledFeatures)
 r1 <- runCV(labeledFeatures, runSVM)
 evalConf(r1)
 

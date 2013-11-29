@@ -1,0 +1,96 @@
+Email #1
+Yes I would like to get together with you and visit your lab.  We returned  last week from France, and then I left for Alaska.  A real cultural shock!   I am now running around to catch up on 4 weeks of backlog.  Could we get together next week?  At this point I do not have any fixed  engagements so I will let you suggest a time.
+
+Email #2
+This is the time of the year - dark, rainy, and trying to survive. It is time for a dessert party. You and your significant other are invited to come to our place for a dessert party. Please RSVP so that I have a head count. If you must insist, you can bring some drinks.
+
+Email #3
+In the upcoming retreat, we will have a segment on the role of online material for our courses. Given what are doing or planning to do with your course, I would like to have a brief 30-min chat with you about your plan and experience. Some time on Friday or next week?
+
+Email #4
+since our last telco, I've found much more time for the work (the semester is over..) so the good news is that we've moved forward quite a bit this time! I actually tried to finish the paper by next week and submit it to ICDM but it turned out to be unrealistic because there were still too many experiments to be done. The next conference is ICDE (the deadline is July 23, I think) so we could try to aim for that.
+
+Email #5
+Yes. Actually I didn't know how to create a poll for any general week so I selected the week of Feb 11 as an example and entered my free times.  If you could select your preferences/free times from the poll then that would be great,
+
+Email #6
+Good morning gentlemen!  Attached is your electronic copy of our submission to MSFHR.  I have excluded the 5 CV modules that were part of our submission Monday in the interests of brevity.  Please contact me with any questions or concerns.
+
+Email #7
+I have attached a list of the top 50 genes SAGE Normalized and Old Housekeeping Normalized permutation results with 10,000 iterations.
+ 
+20 Sq vs 17 Normal experiments.
+ 
+SQIntersection-April3.txt - (note: contains duplicates) All the genes that are contained in the permutation results of both SAGE normalized and Old Housekeeping Normalized.
+
+Email #8
+I have sent out the paper. This is the latest. I had to change the table numbers as you had deleted a table and forgot to change up the tables. And some other minor stuff.  I have attached my changes and I sent out an 8 page reference.
+
+Email #9
+Please find attached a draft of the Genome Canada applied genomics proposal for final review and comment.  Its attached as a 1MB pdf file.  We are continuing to work on the budget for the proposal.
+ 
+We need to obtain some institutional signatures, and I will email and contact you separately to see how we may most efficiently do that.
+
+Email #10
+Perm3 is the parallel processing version.  The iterations have to be included in the command line for perm3, so perm3 file1.txt file2.txt outputfile.txt 10000. I kept getting weird errors  associated with LAM-MPI when I tried to get the number of iterations from the command line. PTPsingle is the single processor version, and asks for the iterations once run.
+
+Email #11
+this is a draft invoice. Please let me know whether I use the right words. I plan to inovice 3 times: 4 months, 4 months and 3 months. Each month is $2000.   I do not put it down in the invoice. But I would prefer to have the cheque written out in my name.
+
+Email #12
+I think one of the reviewer's comments are well taken - how do we determine if the DNA signature we found is predictive of survival (or no recurrence) rather than chemosensitivity. If we have done Cases 1 to 14 from Ming, we should compare the ones without recurrence with the ones that did and show that the signatures are different from the remaining cases. This would be a powerful argument. What do you think? 
+
+Email #13
+as I mentioned yesterday 
+I'm sending you the camera-ready version and the latex source of the paper. 
+The gray paragraphs are relative to the discussion we made here last week. Let me know if you have any comments or suggestions and feel free to modify the latex source (I am not sure about how expensive is to make a uA, and I've been a bit sloppy in the paragraph about lung cancer; do you have any reference ?).
+
+Email #14
+I send you some photos of the thanksgiving party and of the dinner we had the day before my departure. It is a pretty big attachement, I hope you get it, otherwise I will send the photos in separate emails. Please, let me know if you have any comments about the final draft of the paper I sent you because I'm going to submit it in few days.
+
+Email #15
+The reviews of your manuscript are now in hand for 
+Bioinformatics, and can be found at the foot of this e-mail. 
+
+As you can see, the referees indicate that more work is needed 
+before the paper is ready for publication. Based on the reports, 
+the editor has rejected the paper for publication in its present 
+form, and recommends that the paper be rewritten, taking into 
+account all the refereesEcomments.
+
+Email #16
+Your search ends with Indus Valley if you are looking for a quality transcription service provider with full cost advantage. Indus Valley has a decade long experience in providing quality transcription service across all medical and legal specialties.
+Email #17
+The PMMC is designed for those seeking professional project management certification. It serves as both a thorough professional education and recognized certification. Those seeking additional credentials such as the PMP®/PgMP®, PMI-SP®, and PMI-RMP® will benefit from this dynamic and interactive work session, while those currently holding credentials will find the certification to be an enhancement as well as the most up to date advanced professional development.  
+Email #18
+Roy Pollock, Senior Director of Biological Sciences at Epizyme, will discuss targeting histone methyltransferases in cancer therapy. Register to attend the conference and learn how Epizyme has synthesized potent and selective small molecule inhibitors of several histone methyltransferases (HMTs), including EZH2, as a step towards developing targeted therapeutics for human cancers bearing defined genetic lesions.
+Email #19
+We currently are offering  below  Inhibitor  for  clinical trials  in  pack size of 100mg / 500mg / 1gm and  5gm  , bigger the  quantity  better  the  price .
+Email #20
+This Stock is trading huge volume!!! Quick Read Inside!!!  To buy: M-O N_K Market: .19 Company: MONARCHY RESOURCES Date: Aug, 28 Target Price: $1.95  I need you to look at It Immediately! And Our Alert Is.
+Email #21
+Let me use the liberty of this medium to inform you that my principal is interested in investing his bond as a silent business partner in your company. He would like to invest in private sector projects with an established company in any project(s) which are already in the market and have market value or new company requiring the     injection of huge funds, provided there are lots of opportunities available, taking into proper consideration the Return on Investment (ROI) based on a ten (10) year strategic plan.      Kindly indicate your interest in my client’s proposition by furnishing me with your Bio data, business/personal contact details and any other information/detail that may help in the actualization of the impending investment portfolio.
+Email #22
+With it the world will forget about obesity within a decade! You have a chance of enjoying your life here and now without any delays. Take our product and lose at least 10 kilograms a month DOING NOTHING! The product works directly in your brain suppressing hunger signals and makes you slender burning body fat round the clock. Isn't it what you have always wanted to have? You can eat whatever you want and sit in front of your PC losing excessive weight.
+Email #23
+“You need to play the game at work.” Have you heard this saying before? Who hasn’t?  The management world can be a tricky one to thrive in; you finally find your groove and something – or someone – comes along and pulls the rug out from under you. The key to your continuing success is understanding the game and learning everything you can about the other person playing it.
+Email #24
+Bently Residences is a new upcoming freehold low rise residential project at Kovan in District 19. Only 48 exclusive units are available at Bentley Residences. Bentley Residences is set to awe you and your family a modern contemporary lifestyle with luxury and tranquility.
+Email #25
+To help you excel as a first-time manager or an experienced supervisor, Administrative Professional Today is teaming up with workplace guru and syndicated columnist Marie McIntyre on a new webinar that will help you make the transition from co-worker to supervisor. Introducing The 6 Secrets Every Supervisor Needs to Know.
+Email #26
+Dare I suggest that western governments raining down depleted uranium in all corners of the world, spraying chemtrails in our skies, playing Dr. Frankenstein with our food, drugging us into oblivion with psychotropic poison pills, shooting x-rays to expose our naked bodies, and injecting us with toxic vaccines really care about our physical well-being?
+Email #27
+Ever wanted a pool but just didn’t have the space? What about a pool that can be set to the temperature you desire, with less chlorine than standard tap water… a pool that can be installed virtually anywhere, indoors or out and used year-round for lap swimming, aquatic exercise, therapy and family fun? For more than 25 years and available in 80 countries, Endless Pools is your answer! They are staffed with over 100 qualified architects, designers, engineers, and customer service professionals, to help you plan, install and maintain the Endless Pool of your dreams.
+Email #28
+Hello rng, my name is Olivia Sampson. Finally I found a product that is 100% helps to lose weight!
+Do you want new, perfect body? Just click here
+Email #29
+Concrete, wood, and metal surfaces in both residential and commercial spaces will be better protected for longer through this advancement. 
+
+It's easy to apply, and one application will provide environmentally safe protection for years, and you don't need a professional to apply it. 
+Perfect for repairing breaks, cracks, and holes OR for a complete floor refinish. 
+
+Its non-slip coating is safe for wooden decks and patios, warehouse/commercial kitchen floors, and even swimming pools and metal roofs. 
+Email #30
+How do you feel about enriching yourself by means of war? It`s  perfect time to realize this! As soon as the military attack Syria,  oil prices will rise as well as MONARCHY RESOURCES, INC. (M-O N K)  share price. Begin earning cash on Monday, September 02nd, purchase  M-O N K shares!!!

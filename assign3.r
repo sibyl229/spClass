@@ -91,7 +91,12 @@ r2 <- runCV(labeledFeatures, runRF) #, mtry=6,ntree=30,sampsize=40
 evalConf(r2)
 
 
+# predict unlabled email
 
 unlabeledFeatures <- read.csv('unlabeledFeatures.csv')
+predictionRF <- runRF(labeledFeatures, unlabeledFeatures)
+write.csv(predictionRF, 'predictionRF.csv')
+predictionSVM <- runSVM(labeledFeatures, unlabeledFeatures)
+write.csv(predictionSVM, 'predictionSVM.csv')
 
  

@@ -4,6 +4,7 @@ library(rpart)
 library(cvTools)
 library(kernlab)
 library(randomForest)
+library(e1071)
 
 
 
@@ -30,7 +31,7 @@ evalConf <- function(x){
 }
 
 
-runCV <- function(data.train, trainNPredict, ...){
+runCV <- function(data.train, trainNPredict, runID='', ...){
   
   # Create specified number of folds (10)
   set.seed(22)
@@ -53,7 +54,8 @@ runCV <- function(data.train, trainNPredict, ...){
     
     # run function that train a model and test on on testing set
     tmp <- trainNPredict(train.dat, test.dat, ...)
-    tmp <- data.frame(label=test.dat$label, prediction=tmp)
+    tmp <- data.frame(test.samples, test.dat$label, tmp)
+    colnames(tmp) <- c('id', 'label', sprintf('prediction_%s', runID))
     
     if(is.null(predictions)){
       predictions <- tmp
@@ -80,25 +82,96 @@ runRF <- function(train.dat, test.dat, ...){
   return(pred_rf)
 }
 
+runNBC <- function(train.dat, test.dat){
+  fit_nbc <- naiveBayes(label~.,train.dat)
+  pred_nbc <- predict(fit_nbc, newdata=test.dat, type='class') 
+  return(pred_nbc)
+}
+
+comparePredictions <- function(results){
+  comparision <- NULL
+  for (ri in results){
+#     print(ri)
+    if (is.null(comparision)){
+      comparision <- ri
+    }else{
+      comparision <- cbind(comparision, ri)
+    }
+  }
+#   label <- results[1]['label']
+#   comparision <- 
+#   cbind(label=label,
+#         comparision[, colnames(comparision != 'label')])
+  return(comparision)
+}
+
+
+ensemble <- function(predictions){
+  allPred <- comparePredictions(predictions)
+  index <- grepl('prediction', colnames(allPred), perl=TRUE)
+  preds <- allPred[, index]
+  s <- NULL
+  for (pred_i in preds){
+    if (is.null(s)){
+      s <- as.integer(pred_i)
+    }else{
+      s <- s + as.integer(pred_i)
+    }
+  }
+  en <- round(s/length(predictions))
+  en <- factor(en, labels=c('good', 'spam'), ordered=TRUE)
+  result <- cbind(allPred[,c('id', 'label')],
+                  preds,
+                  prediction_en=en)
+  return(result)
+}
+
+
+
+
 # 
 # idf_featnm <- c("label", "price_tfidf","custom_tfidf", 
 #                  "product_tfidf", "look_tfidf","buy_tfidf")
 
+featIndex <- c('label','product',
+               'senLength','questionCount','exclaimCount','iCount','iCount', 
+               'myCount', 'countPercent')
 labeledFeatures <- read.csv('labeledFeatures.csv')
-labeledFeatures <- normalizeNumerics(labeledFeatures)
-r1 <- runCV(labeledFeatures, runSVM)
+labeledFeatures <- labeledFeatures[,]
+# labeledFeatures <- normalizeNumerics(labeledFeatures)
+r1 <- runCV(labeledFeatures, runSVM, runID='SVM')
 evalConf(r1)
 
-r2 <- runCV(labeledFeatures, runRF) #, mtry=6,ntree=30,sampsize=40
+r2 <- runCV(labeledFeatures, runRF, runID='RF') #, mtry=6,ntree=30,sampsize=40
 evalConf(r2)
 
+r3 <- runCV(labeledFeatures, runNBC, runID='NBC') #, mtry=6,ntree=30,sampsize=40
+evalConf(r3)
+
+comparision <- comparePredictions(list(r1,r2, r3))
+
+en <- ensemble(list(r1,r2, r3))
+sum(as.integer(en$label)==as.integer(en$prediction_en))
+
+
+#   c("price_tfidf","custom_tfidf", 
+#                 "product_tfidf", "look_tfidf","buy_tfidf", "mn"
 
 # predict unlabled email
 
 unlabeledFeatures <- read.csv('unlabeledFeatures.csv')
+unlabeledFeatures <- unlabeledFeatures[,]
+
 predictionRF <- runRF(labeledFeatures, unlabeledFeatures)
 write.csv(predictionRF, 'predictionRF.csv')
 predictionSVM <- runSVM(labeledFeatures, unlabeledFeatures)
 write.csv(predictionSVM, 'predictionSVM.csv')
+predictionNBC <- runNBC(labeledFeatures, unlabeledFeatures)
+write.csv(predictionSVM, 'predictionNBC.csv')
 
+
+# 
+# fit_rf <-randomForest(label~.,labeledFeatures)
+# 
+# pred_rf <- predict(fit_rf, newdata=unlabeledFeatures, type='response')
  

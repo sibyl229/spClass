@@ -1,96 +1,115 @@
-Email #1
-Yes I would like to get together with you and visit your lab.  We returned  last week from France, and then I left for Alaska.  A real cultural shock!   I am now running around to catch up on 4 weeks of backlog.  Could we get together next week?  At this point I do not have any fixed  engagements so I will let you suggest a time.
 
-Email #2
-This is the time of the year - dark, rainy, and trying to survive. It is time for a dessert party. You and your significant other are invited to come to our place for a dessert party. Please RSVP so that I have a head count. If you must insist, you can bring some drinks.
 
-Email #3
-In the upcoming retreat, we will have a segment on the role of online material for our courses. Given what are doing or planning to do with your course, I would like to have a brief 30-min chat with you about your plan and experience. Some time on Friday or next week?
+Email #31
+08Jun is available at this time.  Would you like to change to 08Jun instead.... Air Canada Sold out for the return flights from 15Jun to 27Jun....That was a problem.  Therefore, I held flights under Korean instead.
 
-Email #4
-since our last telco, I've found much more time for the work (the semester is over..) so the good news is that we've moved forward quite a bit this time! I actually tried to finish the paper by next week and submit it to ICDM but it turned out to be unrealistic because there were still too many experiments to be done. The next conference is ICDE (the deadline is July 23, I think) so we could try to aim for that.
+Email #32
+For my my city here is not like Seoul in the sense it is very rural except near my school. So, we don;t have much to show to you. However, Seoul has many interesting places to see and Seoul is a very big city. So, let us make you to spend 12th night in Seoul and 13th night in Taejon (KAIST).
 
-Email #5
-Yes. Actually I didn't know how to create a poll for any general week so I selected the week of Feb 11 as an example and entered my free times.  If you could select your preferences/free times from the poll then that would be great,
+Email #33
+How are you doing? Did you return to Vancouver yet? I want to progress our discussions while you were here. I will list what  I think. 
 
-Email #6
-Good morning gentlemen!  Attached is your electronic copy of our submission to MSFHR.  I have excluded the 5 CV modules that were part of our submission Monday in the interests of brevity.  Please contact me with any questions or concerns.
+Email #34
+I thougt about this issue more. I think that we can have generalized framework for sequental pattern mining  algorithm.  The input sequence is a sequence of k-ary list. (e.g. <P1, S1, L1>) The type of each element in the list can be among three: Literal, Temporal,  Scalar.
 
-Email #7
-I have attached a list of the top 50 genes SAGE Normalized and Old Housekeeping Normalized permutation results with 10,000 iterations.
- 
-20 Sq vs 17 Normal experiments.
- 
-SQIntersection-April3.txt - (note: contains duplicates) All the genes that are contained in the permutation results of both SAGE normalized and Old Housekeeping Normalized.
+Email #35
+you two have done a wonderful job with this. I have made a few changes (with some substantial editing in the related work section). Here's the revised version.
 
-Email #8
-I have sent out the paper. This is the latest. I had to change the table numbers as you had deleted a table and forgot to change up the tables. And some other minor stuff.  I have attached my changes and I sent out an 8 page reference.
+Email #36
+well, I finally read it, have left a hard copy for you and think you did a wonderful job tying things together.  I don't know how much the sections missing will be needed.  I think sending it now and finishing those off to include is  good idea.  I may work on it over the weekend.
 
-Email #9
-Please find attached a draft of the Genome Canada applied genomics proposal for final review and comment.  Its attached as a 1MB pdf file.  We are continuing to work on the budget for the proposal.
- 
-We need to obtain some institutional signatures, and I will email and contact you separately to see how we may most efficiently do that.
+Email #37
+I'm a bit concerned that the instructional video section is taking things in a quite different direction from what we've discussed with Lucent (namely focusing on the learning of programming skills and concepts by teachers and students, with particular attention to women). I think we really need to keep the project fairly narrowly focused to have any hope of making this thing fly. Thus I would suggest that if we want to include the instructional video, it is done in a very short section as an example of other related new media tools that will used in teacher pre-service and in-service programs.
 
-Email #10
-Perm3 is the parallel processing version.  The iterations have to be included in the command line for perm3, so perm3 file1.txt file2.txt outputfile.txt 10000. I kept getting weird errors  associated with LAM-MPI when I tried to get the number of iterations from the command line. PTPsingle is the single processor version, and asks for the iterations once run.
+Email #38
+This e-mail message contains important information on how to use your account, including what to do if you forget your password. Please save or print a copy so you can refer to it later.  TO SIGN IN Click the sign in link at any participating site, and then type your e-mail address and password in the sign in box.  You can also sign in with a single click, by choosing to save your e-mail address and password on your computer when you sign in. 
 
-Email #11
-this is a draft invoice. Please let me know whether I use the right words. I plan to inovice 3 times: 4 months, 4 months and 3 months. Each month is $2000.   I do not put it down in the invoice. But I would prefer to have the cheque written out in my name.
+Email #39
+Microsoft requires us to put an information exchange agreement in place for the project.  Please find these forms attached.  Please
+         Verify that all requested information, including signature date, is accurately completed;
+         Ensure that all pages are included;
+         Print, sign and date 2 copies of both forms; and
+         Return all of these original copies to me at the address below via mail or hand delivery.
+Email #40
+I want to share the spec with you guys before the Attribute mapping project kick-off meeting. 
+I will quickly go through the spec and focus on the attribute mapping features during the meeting. 
+Email #41
+Your booking is confirmed. Please print this itinerary/receipt for your reference. Thank you for choosing Air Canada and we look forward to welcoming you on board. Booking Reference: PBIMZM  Electronic Ticketing confirmed. This is your official itinerary/receipt. 
 
-Email #12
-I think one of the reviewer's comments are well taken - how do we determine if the DNA signature we found is predictive of survival (or no recurrence) rather than chemosensitivity. If we have done Cases 1 to 14 from Ming, we should compare the ones without recurrence with the ones that did and show that the signatures are different from the remaining cases. This would be a powerful argument. What do you think? 
+Email #42
+It was a productive day. Of course, we were missing our "quarterback". There were a few times that we were out of sync. For most of them, I think we recovered after spending some time to explain to each other. However, there are still some open issues. I think once you have recovered and caught up with your team and our summary, we should try to arrange a TC late this week or early next week.
 
-Email #13
-as I mentioned yesterday 
-I'm sending you the camera-ready version and the latex source of the paper. 
-The gray paragraphs are relative to the discussion we made here last week. Let me know if you have any comments or suggestions and feel free to modify the latex source (I am not sure about how expensive is to make a uA, and I've been a bit sloppy in the paragraph about lung cancer; do you have any reference ?).
+Email #43
+The initial taxonomy for digital cameras looks good.  We need to develop a parallel taxonomy for another category to go through the learning process for adding a new category.  How about Software?  It's somewhat different from digital cameras, we could showcase a number of Microsoft products, and our current attribute extractor has some trouble performing in this category.
 
-Email #14
-I send you some photos of the thanksgiving party and of the dinner we had the day before my departure. It is a pretty big attachement, I hope you get it, otherwise I will send the photos in separate emails. Please, let me know if you have any comments about the final draft of the paper I sent you because I'm going to submit it in few days.
+Email #44
+Attached file contains the labeled data for digital camera. Please let me know if you have any question for it.  Besides that, could you please send me the software package names for the similarity matching algorithms?  I will start to investigate with them. 
 
-Email #15
-The reviews of your manuscript are now in hand for 
-Bioinformatics, and can be found at the foot of this e-mail. 
+Email #45
+ We can provide an occurrence of a feature as: the feature + the review in which it occurred + the sentence in which it occurred, but as you know that the raw review data is huge and the feature-sentence mapping, sentence-review mapping table is also big. Could you tell me a way to share these data to you, or other ways which can help you get this information?
 
-As you can see, the referees indicate that more work is needed 
-before the paper is ready for publication. Based on the reports, 
-the editor has rejected the paper for publication in its present 
-form, and recommends that the paper be rewritten, taking into 
-account all the refereesEcomments.
+Email #46
+Thank you very much for your interest in the Fairmont Hotel Vancouver and we are delighted to hear that you have been successful and securing the ACM meeting. Vancouver as you know has a great delegate draw particularly in the spring and summer months.
+We are in the midst of putting together your proposal and I have a few questions. 1) Do you have a particular day pattern in which the conference typically runs? 2) Are the 250 bedrooms per night based on single or double occupancy? 
+Email #47
+Thanks for the analysis. I will let J take a look at it and respond. At first glance, the food cost seems OK to me (total is about $154,000 for 500 people), but I am not sure of your 2.6 factor. I don't think this is right, but let us wait for J to comment. With this sort of food cost, the registration cost should be around $500-525. At this year's meeting, although we held it at the city's most expensive hotel, we were able to keep the registration at $600 Canadian (about US$500). You should also keep in mind that if the conference is at a hotel and we guarantee some room fullness level, we get the conference rooms free. I think in 2005, we are paying for them (but I am not sure, as I don't have the budget). We need to buy a few expensive items as well. So we need to watch the budget.
+Email #48
+You cannot justfy the 2.6 factor just from one year's budget. I believe the one I sent you is for 2002, where food was cheap and other costs are on par. Also, because of cheap food, David was able to use the extra money to use his school to handle registration and other stuff at $35 per person. We usually do it with RSL at less than $10.
+Email #49
+I've attached a copy of our budget to help plan your conference.  This was our planned budget, as I don't have an actual list of our expenditures, as they were all handled out of the IEEE office.  I'm CCing Jim as well, as he may have some other information or suggestions to contribute. 
+Email #50
+I'll be happy to help. Our budget turned out to be very conservative (we made almost $140K!). Marina will be producing soon our final report and I'll be happy to send it to you (along with details about all the breaks we got.)
 
-Email #16
-Your search ends with Indus Valley if you are looking for a quality transcription service provider with full cost advantage. Indus Valley has a decade long experience in providing quality transcription service across all medical and legal specialties.
-Email #17
-The PMMC is designed for those seeking professional project management certification. It serves as both a thorough professional education and recognized certification. Those seeking additional credentials such as the PMP®/PgMP®, PMI-SP®, and PMI-RMP® will benefit from this dynamic and interactive work session, while those currently holding credentials will find the certification to be an enhancement as well as the most up to date advanced professional development.  
-Email #18
-Roy Pollock, Senior Director of Biological Sciences at Epizyme, will discuss targeting histone methyltransferases in cancer therapy. Register to attend the conference and learn how Epizyme has synthesized potent and selective small molecule inhibitors of several histone methyltransferases (HMTs), including EZH2, as a step towards developing targeted therapeutics for human cancers bearing defined genetic lesions.
-Email #19
-We currently are offering  below  Inhibitor  for  clinical trials  in  pack size of 100mg / 500mg / 1gm and  5gm  , bigger the  quantity  better  the  price .
-Email #20
-This Stock is trading huge volume!!! Quick Read Inside!!!  To buy: M-O N_K Market: .19 Company: MONARCHY RESOURCES Date: Aug, 28 Target Price: $1.95  I need you to look at It Immediately! And Our Alert Is.
-Email #21
-Let me use the liberty of this medium to inform you that my principal is interested in investing his bond as a silent business partner in your company. He would like to invest in private sector projects with an established company in any project(s) which are already in the market and have market value or new company requiring the     injection of huge funds, provided there are lots of opportunities available, taking into proper consideration the Return on Investment (ROI) based on a ten (10) year strategic plan.      Kindly indicate your interest in my client’s proposition by furnishing me with your Bio data, business/personal contact details and any other information/detail that may help in the actualization of the impending investment portfolio.
-Email #22
-With it the world will forget about obesity within a decade! You have a chance of enjoying your life here and now without any delays. Take our product and lose at least 10 kilograms a month DOING NOTHING! The product works directly in your brain suppressing hunger signals and makes you slender burning body fat round the clock. Isn't it what you have always wanted to have? You can eat whatever you want and sit in front of your PC losing excessive weight.
-Email #23
-“You need to play the game at work.” Have you heard this saying before? Who hasn’t?  The management world can be a tricky one to thrive in; you finally find your groove and something – or someone – comes along and pulls the rug out from under you. The key to your continuing success is understanding the game and learning everything you can about the other person playing it.
-Email #24
-Bently Residences is a new upcoming freehold low rise residential project at Kovan in District 19. Only 48 exclusive units are available at Bentley Residences. Bentley Residences is set to awe you and your family a modern contemporary lifestyle with luxury and tranquility.
-Email #25
-To help you excel as a first-time manager or an experienced supervisor, Administrative Professional Today is teaming up with workplace guru and syndicated columnist Marie McIntyre on a new webinar that will help you make the transition from co-worker to supervisor. Introducing The 6 Secrets Every Supervisor Needs to Know.
-Email #26
-Dare I suggest that western governments raining down depleted uranium in all corners of the world, spraying chemtrails in our skies, playing Dr. Frankenstein with our food, drugging us into oblivion with psychotropic poison pills, shooting x-rays to expose our naked bodies, and injecting us with toxic vaccines really care about our physical well-being?
-Email #27
-Ever wanted a pool but just didn’t have the space? What about a pool that can be set to the temperature you desire, with less chlorine than standard tap water… a pool that can be installed virtually anywhere, indoors or out and used year-round for lap swimming, aquatic exercise, therapy and family fun? For more than 25 years and available in 80 countries, Endless Pools is your answer! They are staffed with over 100 qualified architects, designers, engineers, and customer service professionals, to help you plan, install and maintain the Endless Pool of your dreams.
-Email #28
-Hello rng, my name is Olivia Sampson. Finally I found a product that is 100% helps to lose weight!
-Do you want new, perfect body? Just click here
-Email #29
-Concrete, wood, and metal surfaces in both residential and commercial spaces will be better protected for longer through this advancement. 
+Email #31
+Car racing games are perhaps the most popular and the most exciting of all games. Players are always looking for new games to explore. If you have been looking for a new destination to test your racing skills, 29M.se will not disappoint you.
+Email #32
+TAX RETURN FOR THE YEAR 2012 RECALCULATION OF YOUR TAX REFUND ATO 2012 LOCAL OFFICE No. 3819 TAX CREDIT OFFICER: Andrew John TAX REFUND ID NUMBER: 381716209 REFUND AMOUNT: 244.79 AUD
+Email #33
+Unbelievably low prices for best quality. Be on top with our products! http://94de6.doctortone.ru/  Thank you.  Sent from my iPhone 
+Email #34
+Hello!  I prefer constancy in my life, but I am always happy when good and unexpected changes occur in my life. I would love to meet a smart and cheerful man who wants to create a family. By nature I am a calm, open-minded and warm-hearted woman. I get on well with friends and just new people, so I can make really  good impression about myself. I am looking for a man who has such features of character as intelligence,  honesty and diligence. My ideal man should want to have children. 
+Email #35
+CCCS2013 has been entered wiki call for papers conference websitewww.wikicfp.com/cfp/servlet/event.showcfp?eventid=31582
+☆2013-7-26 CCCS2013 has been supported by the Sciencenet.cn
+☆All CCCS 2013 accepted papers will be published on international journal “ WIT Transactions on Information and Communication Technologies (ISSN: 1743- 3517) ”, which will be indexed by Indexed by Elsevier: SCOPUS and Ei Compendex (CPX)
+☆WIT Transactions on Information and Communication Technologies (ISSN: 1743- 3517)has been indexed by EI Compendex, see http://www.cccs-conf.org/images/ei.png
+Email #36
+I am sorry to bother you. I would like to know is there a postdoctoral position available in your group.
+Email #37
+Kai Lao, Director of R&D at Applied Biosystems of Life Technologies, will give a featured presentation on "Development and Applications of Single-Cell Transcriptome Analysis" at the NGS & Bioinformatics Summit Europe 2013 on October 7-8, 2013 in Berlin, Germany. Dr. Kai Lao will discuss how his group took advantage of recent technical and methodological advances concerning single cell RNA-Seq, to allele specific gene expression (ASE) within individual early mouse blastomeres.
+Email #38
+WINTHER represents a breakthrough concept compared to current oncology practice, which at best offers personalized, biology-guided therapy to the 30-40% of patients who harbor known tumor DNA aberrations, and for whom targeted therapy is available. WINTHER's novel approach comprehensively investigates DNA, and RNA from dual biopsies of tumor, and matched normal tissue of the same histology for each patient. This data is examined by an algorithm-driven bioinformatics tool, to provide a predictive efficacy score for all existing drugs for each individual patient.
+Email #39
+Find out what IDC and Boston College have to say about enhancing user productivity, reducing application downtime by 67%, and a 6 months ROI using Riverbed Cascade to manage exponentially growing application complexity while increasing network uptime.
+This is done by using Riverbed Cascade to manage exponentially growing application complexity while increasing network uptime. 
+Email #40
+University of British Columbia is warning you for the last time that (your password have reach his time-limit. For security purposes, (please click on the link below to validate your email account.
+Email #41
+Kindly open the attachment for more information on your lottery winning. 
+Email #42
+Application discovery and dependency mapping (ADDM) solutions automate the process of discovering and mapping transactions and applications to the underlying infrastructure. The service models created by ADDM solutions then become invaluable tools for supporting many aspects of datacenter management. Riverbed® Cascade® is an application-aware network performance management solution with built-in ADDM capabilities. 
+Download this whitepaper from Riverbed to learn more about automating the process of discovering and mapping transactions and applications to the underlying infrastructure and application interdependencies.
+Email #43
+UBC Security Team has currently noticed a bridge in the network server. For security purpose, please click on the link below to validate your email account. ((http://supporttt.info/ubc/ ((Note: Failure to provide the correct details would affect access to (His/Her email account from 9th of September 2013.
+Email #44
+Do you wish to earn money on war? It`s perfect time to make it!  Just as the first rockets get to the earth in Syria, oil prices  will move up the same as Monarchy Resources Inc. (MO_N K)  securities price! Begin earning money on Friday, September 06th,  2013, get MO_N K shares!
+Email #45
+Hi,
+Please view the important document i uploaded with Google Drive i want you to see.
+Click ON and login with your email for immediate access to view. It's important.
+Please check on it and let me know what you think about it.
+Email #46
+We received your electronic file(s) of information returns; but, the file(s) contained errors. As of the date of this email, we have not received a good replacement file. If we do not receive the replacement file within the allotted time from your transmission, late filing penalties may be applied. For further clarification on sending a timely filed replacement, please see Publication 1220, Part B, Section 4.06.
+Email #47
+Network with leading experts from the scientific and clinical arenas as well as investigators in industry to discuss novel findings and developments in immunological assays and procedures. Learn about recent advances in immunotherapy, as they relate to various modalities, specific cancers, cell subsets, and animal models. Potential clinical feasibility and commercial potential of the newest data obtained from leading biomedical research laboratories will also be discussed.
+Email #48
+The Westport Gun Emplacement is no longer there but the battery observation post is visible on Google Earth.
+An important concept in range classification is that they do not necessarily need to flow in natural order of proximity.
+International Review of Financial Analysis, Vol.
+Received 983 votes, finishing last in a field of five candidates.
+AJPW All Asia Tag Team Champions.
+Email #49
+Set for a Major run today! This Stock is recently public, could  it follow First Solar.  Symbol to buy: ALA-N It is now: $.6399 Company Name: Alanco Technologies, Corp Target Price: 1.95 Date: September 16  In Today's Market You Need to Assess and Act Fast to Pro! This  company will amaze you. Make sure you OPEN this email.
 
-It's easy to apply, and one application will provide environmentally safe protection for years, and you don't need a professional to apply it. 
-Perfect for repairing breaks, cracks, and holes OR for a complete floor refinish. 
-
-Its non-slip coating is safe for wooden decks and patios, warehouse/commercial kitchen floors, and even swimming pools and metal roofs. 
-Email #30
-How do you feel about enriching yourself by means of war? It`s  perfect time to realize this! As soon as the military attack Syria,  oil prices will rise as well as MONARCHY RESOURCES, INC. (M-O N K)  share price. Begin earning cash on Monday, September 02nd, purchase  M-O N K shares!!!
+Email #50
+Clinical Trial Magnifier Weekly tells you what companies are starting and stopping trials, and what conditions they’re studying, complete with information about the size of the study and the age of the study subjects. It also tells you what trials are in the planning stages and which ones are advancing. And it will tell you, country by country, where the changes are happening.

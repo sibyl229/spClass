@@ -52,18 +52,18 @@ dtfFeatures_help <- function(emailText, tokens){
   tfTokens <- extractFreq(tfAll, tokens)
   
   tfTokensAug <- (tfTokens * 0.5 / max(tfAll)) + 0.5
-  print(tfTokensAug)
+#   print(tfTokensAug)
   result <- c(
     tokenCount=length(strsplit_space_tokenizer(emailText)),
     cleanTokenCount=length(emailTokens),
-    tfTokensAug
+    tfTokens#tfTokensAug
   )
   result <- rbind(result)
   return(result)
 }
 
 computeDtfIdf <- function(tf){
-  idf <- log(length(tf) / sum(tf > 0.5)) #where tf = 0.5 is the base line of augmented tf
+  idf <- log(length(tf) / sum(tf > 0)) #where tf = 0.5 is the base line of augmented tf
   tfIdf <- tf * idf
   return(tfIdf)
 }
@@ -94,8 +94,23 @@ countUpperCase <- function(text){
 countI <- function(rawEmail){
   emailTokens <- strsplit_space_tokenizer(tolower(rawEmail))
   iregex <- "(\\Ai|(i\\'\\w*))\\Z" # i, i'll, i've etc, but not idea, or hi
-  cnt <- length(grep(iregex, emailTokens, perl=TRUE, value=TRUE))
-  return(cnt)
+  cntI <- length(grep(iregex, emailTokens, perl=TRUE, value=TRUE))
+  myregex <- "\\Amy\\Z"
+  cntMy <- length(grep(myregex, emailTokens, perl=TRUE, value=TRUE))
+  return(cntI)
+}
+
+countPercent <- function(email){
+    digitMatches <- gregexpr("\\%", email, perl=TRUE)# look for 2 digits or more continously
+    cnt <- length(digitMatches[[1]])
+    return(cnt)
+}
+
+countMy <- function(rawEmail){
+  emailTokens <- strsplit_space_tokenizer(tolower(rawEmail))
+  myregex <- "\\Amy\\Z"
+  cntMy <- length(grep(myregex, emailTokens, perl=TRUE, value=TRUE))
+  return(cntMy)
 }
 
 countDigits <- function(email){
@@ -120,7 +135,9 @@ nonTokenFeatures <- function(emailRaw){
     questionCount=questionCount,
     exclaimCount=exclaimCount,
     iCount=iCount,
-    digitCount=digitCount
+    myCount=countMy(emailRaw),
+    digitCount=digitCount,
+     countPercent=countPercent(emailRaw)
   )
   return(feat)
 }

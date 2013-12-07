@@ -33,6 +33,7 @@ loadUnlabeledSample <- function(filename){
   
   eDat <- data.frame(emailText=emails)
   eDat$emailText <- as.character(eDat$emailText)
+  eDat$label <- as.character('', nrow(eDat))
   return(eDat)
 }
 

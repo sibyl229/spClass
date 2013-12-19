@@ -37,8 +37,20 @@ loadUnlabeledSample <- function(filename){
   return(eDat)
 }
 
-labeledEmails <- loadTrainSample('GoodnSpam.txt')
-save(labeledEmails,file="labeledEmails.Rda")
-unlabeledEmails <- loadUnlabeledSample('fakeTestEmails.txt')
-save(unlabeledEmails,file="unlabeledEmails.Rda")
+args <- commandArgs(TRUE)
+
+override <- function(argVal, defaultVal){
+  val <- NULL
+  if(is.null(argVal)){
+    val <- defaultVal
+  }else{
+    val <- argVal
+  }
+  return(val)
+}
+
+labeledEmails <- loadTrainSample('../GoodnSpam.txt')
+save(labeledEmails,file="../data/labeledEmails.Rda")
+unlabeledEmails <- loadUnlabeledSample('../fakeTestEmails.txt')
+save(unlabeledEmails,file="../data/unlabeledEmails.Rda")
 

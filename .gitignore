@@ -6,3 +6,6 @@ spClass.Rproj
 *.Rda
 *.docx
 *.doc
+*.md
+*.html
+figure/

@@ -129,45 +129,45 @@ ensemble <- function(predictions){
 
 
 
-# 
-# idf_featnm <- c("label", "price_tfidf","custom_tfidf", 
-#                  "product_tfidf", "look_tfidf","buy_tfidf")
+
+idf_featnm <- c("label", "price_tfidf","custom_tfidf", 
+                 "product_tfidf", "look_tfidf","buy_tfidf")
 
 featIndex <- c('label','product',
                'senLength','questionCount','exclaimCount','iCount','iCount', 
                'myCount', 'countPercent')
 labeledFeatures <- read.csv('labeledFeatures.csv')
 labeledFeatures <- labeledFeatures[,]
-# labeledFeatures <- normalizeNumerics(labeledFeatures)
-r1 <- runCV(labeledFeatures, runSVM, runID='SVM')
-evalConf(r1)
+# # labeledFeatures <- normalizeNumerics(labeledFeatures)
+# r1 <- runCV(labeledFeatures, runSVM, runID='SVM')
+# evalConf(r1)
 
-r2 <- runCV(labeledFeatures, runRF, runID='RF') #, mtry=6,ntree=30,sampsize=40
-evalConf(r2)
+# r2 <- runCV(labeledFeatures, runRF, runID='RF') #, mtry=6,ntree=30,sampsize=40
+# evalConf(r2)
 
-r3 <- runCV(labeledFeatures, runNBC, runID='NBC') #, mtry=6,ntree=30,sampsize=40
-evalConf(r3)
+# r3 <- runCV(labeledFeatures, runNBC, runID='NBC') #, mtry=6,ntree=30,sampsize=40
+# evalConf(r3)
 
-comparision <- comparePredictions(list(r1,r2, r3))
+# comparision <- comparePredictions(list(r1,r2, r3))
 
-en <- ensemble(list(r1,r2, r3))
-sum(as.integer(en$label)==as.integer(en$prediction_en))
+# en <- ensemble(list(r1,r2, r3))
+# sum(as.integer(en$label)==as.integer(en$prediction_en))
 
 
 #   c("price_tfidf","custom_tfidf", 
 #                 "product_tfidf", "look_tfidf","buy_tfidf", "mn"
 
 # predict unlabled email
-
-unlabeledFeatures <- read.csv('unlabeledFeatures.csv')
-unlabeledFeatures <- unlabeledFeatures[,]
-
-predictionRF <- runRF(labeledFeatures, unlabeledFeatures)
-write.csv(predictionRF, 'predictionRF.csv')
-predictionSVM <- runSVM(labeledFeatures, unlabeledFeatures)
-write.csv(predictionSVM, 'predictionSVM.csv')
-predictionNBC <- runNBC(labeledFeatures, unlabeledFeatures)
-write.csv(predictionSVM, 'predictionNBC.csv')
+# 
+# unlabeledFeatures <- read.csv('unlabeledFeatures.csv')
+# unlabeledFeatures <- unlabeledFeatures[,]
+# 
+# predictionRF <- runRF(labeledFeatures, unlabeledFeatures)
+# write.csv(predictionRF, 'predictionRF.csv')
+# predictionSVM <- runSVM(labeledFeatures, unlabeledFeatures)
+# write.csv(predictionSVM, 'predictionSVM.csv')
+# predictionNBC <- runNBC(labeledFeatures, unlabeledFeatures)
+# write.csv(predictionSVM, 'predictionNBC.csv')
 
 
 # 

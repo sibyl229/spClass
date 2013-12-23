@@ -1,7 +1,7 @@
 library(tm)
 library(plyr)
 suppressPackageStartupMessages(library("argparse"))
-source("helper.R")
+source("spClassR/helper.R")
 
 
 strsplit_space_tokenizer <- function(x){
@@ -169,7 +169,7 @@ parser <- ArgumentParser()
 # by default ArgumentParser will add an help option 
 
 parser$add_argument("-i", "--inputFilePath",
-                    default="../data/testemails.fake.Rda",
+                    default="data/testemails.fake.Rda",
                     type="character",
                     help="Rda object of unlabeled emails")
                                         
@@ -179,17 +179,17 @@ args <- parser$parse_args()
 print(args)
 
 # their respective r object name is the same as their file name
-labeledEmails <- readRDS("../data/labeledEmails.Rda")
+labeledEmails <- readRDS("data/labeledEmails.Rda")
 unlabeledEmails <- readRDS(args$inputFilePath)
 
 labeledFeatures <- extraFeatures(labeledEmails, tokensNew)
 write.csv(labeledFeatures,
-          file="../results/labeledFeatures.csv",
+          file="results/labeledFeatures.csv",
           row.names=FALSE)
 
 unlabeledFeatures <- extraFeatures(unlabeledEmails, tokensNew)
 outNickname <- getNickname(args$inputFilePath)
-outFilePath <- paste(c("../results/unlabeledFeatures",
+outFilePath <- paste(c("results/unlabeledFeatures",
                        outNickname, "csv"), collapse=".")
 write.csv(unlabeledFeatures,
           file=outFilePath,

@@ -6,6 +6,7 @@ library(kernlab)
 library(randomForest)
 library(e1071)
 library(argparse)
+source("spClassR/helper.R")
 
 
 normalizeNumerics <- function(dat){

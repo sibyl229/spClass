@@ -1,5 +1,5 @@
 library(plyr)
-source("helper.R")
+source("spClassR/helper.R")
 
 splitEmails <- function(eStr){
   emailList <- unlist(strsplit(eStr, "Email\\s+#\\d+\\s*", perl=TRUE))
@@ -40,12 +40,12 @@ loadUnlabeledSample <- function(filename){
 
 
 
-labeledEmails <- loadTrainSample('../data/GoodnSpam.txt')
-saveRDS(labeledEmails, file="../data/labeledEmails.Rda")
+labeledEmails <- loadTrainSample('data/GoodnSpam.txt')
+saveRDS(labeledEmails, file="data/labeledEmails.Rda")
 
 
 ## args <- miniParse(commandArgs(trailingOnly=TRUE),
-##                   list(inputFilePath="../data/testemails.fake.txt"))
+##                   list(inputFilePath="data/testemails.fake.txt"))
 
 suppressPackageStartupMessages(library("argparse"))
 
@@ -56,7 +56,7 @@ parser <- ArgumentParser()
 # by default ArgumentParser will add an help option 
 
 parser$add_argument("-i", "--inputFilePath",
-                    default="../data/testemails.fake.txt",
+                    default="data/testemails.fake.txt",
                     type="character",
                     help="Text file of unlabeled emails")
                                         
@@ -67,7 +67,7 @@ print(args)
 
 # generate output file name for the test email
 unlabeledEmails <- loadUnlabeledSample(args$inputFilePath)
-outputFilePath <- paste(c("../data/testemails",
+outputFilePath <- paste(c("data/testemails",
                           getNickname(args$inputFilePath),
                           "Rda"), collapse=".")
 

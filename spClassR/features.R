@@ -1,9 +1,8 @@
 library(tm)
 library(plyr)
+suppressPackageStartupMessages(library("argparse"))
+source("helper.R")
 
-# their respective r object name is the same as their file name
-load("labeledEmails.Rda")
-load("unlabeledEmails.Rda")
 
 strsplit_space_tokenizer <- function(x){
   return(unlist(strsplit(x, "\\W*\\s+\\W*", perl=TRUE)))
@@ -163,12 +162,35 @@ tokensOrig <- stemDocument(c("price", "customer", "product", "look", "buy"),
 tokensNew <- stemDocument(c("price", "customer", "product", "look", "buy", "manage"),
                           language='english')
 
+# create parser object
+parser <- ArgumentParser()
+
+# specify our desired options 
+# by default ArgumentParser will add an help option 
+
+parser$add_argument("-i", "--inputFilePath",
+                    default="../data/testemails.fake.Rda",
+                    type="character",
+                    help="Rda object of unlabeled emails")
+                                        
+# get command line options, if help option encountered print help and exit,
+# otherwise if options not found on command line then set defaults, 
+args <- parser$parse_args()
+print(args)
+
+# their respective r object name is the same as their file name
+labeledEmails <- readRDS("../data/labeledEmails.Rda")
+unlabeledEmails <- readRDS(args$inputFilePath)
+
 labeledFeatures <- extraFeatures(labeledEmails, tokensNew)
 write.csv(labeledFeatures,
-          file='labeledFeatures.csv',
+          file="../results/labeledFeatures.csv",
           row.names=FALSE)
 
 unlabeledFeatures <- extraFeatures(unlabeledEmails, tokensNew)
+outNickname <- getNickname(args$inputFilePath)
+outFilePath <- paste(c("../results/unlabeledFeatures",
+                       outNickname, "csv"), collapse=".")
 write.csv(unlabeledFeatures,
-          file='unlabeledFeatures.csv',
+          file=outFilePath,
           row.names=FALSE)

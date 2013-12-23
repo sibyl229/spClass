@@ -5,7 +5,7 @@ library(cvTools)
 library(kernlab)
 library(randomForest)
 library(e1071)
-
+library(argparse)
 
 
 normalizeNumerics <- function(dat){
@@ -128,6 +128,31 @@ ensemble <- function(predictions){
 
 
 
+tokensOrig <- stemDocument(c("price", "customer", "product", "look", "buy"),
+                           language='english')
+tokensNew <- stemDocument(c("price", "customer", "product", "look", "buy", "manage"),
+                          language='english')
+
+# create parser object
+parser <- ArgumentParser()
+
+# specify our desired options 
+# by default ArgumentParser will add an help option 
+
+parser$add_argument("-i", "--inputFilePath",
+                    default="../results/labeledFeatures.fake.csv",
+                    type="character",
+                    help="CSV of features for unlabeled emails")
+                                        
+# get command line options, if help option encountered print help and exit,
+# otherwise if options not found on command line then set defaults, 
+args <- parser$parse_args()
+print(args)
+
+# their respective r object name is the same as their file name
+labeledFeatures <- read.csv("../results/labeledFeatures.csv")
+unlabeledFeatures <- read.csv(args$inputFilePath)
+
 
 
 idf_featnm <- c("label", "price_tfidf","custom_tfidf", 
@@ -136,8 +161,7 @@ idf_featnm <- c("label", "price_tfidf","custom_tfidf",
 featIndex <- c('label','product',
                'senLength','questionCount','exclaimCount','iCount','iCount', 
                'myCount', 'countPercent')
-labeledFeatures <- read.csv('labeledFeatures.csv')
-labeledFeatures <- labeledFeatures[,]
+
 # # labeledFeatures <- normalizeNumerics(labeledFeatures)
 # r1 <- runCV(labeledFeatures, runSVM, runID='SVM')
 # evalConf(r1)
@@ -170,7 +194,9 @@ labeledFeatures <- labeledFeatures[,]
 # write.csv(predictionSVM, 'predictionNBC.csv')
 
 
-# 
+# outNickname <- getNickname(args$inputFilePath)
+# outFilePath <- paste(c("../results/unlabeledFeatures",
+#                       outNickname, "csv"), collapse=".")
 # fit_rf <-randomForest(label~.,labeledFeatures)
 # 
 # pred_rf <- predict(fit_rf, newdata=unlabeledFeatures, type='response')

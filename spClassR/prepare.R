@@ -1,4 +1,5 @@
 library(plyr)
+source("helper.R")
 
 splitEmails <- function(eStr){
   emailList <- unlist(strsplit(eStr, "Email\\s+#\\d+\\s*", perl=TRUE))
@@ -37,20 +38,40 @@ loadUnlabeledSample <- function(filename){
   return(eDat)
 }
 
-args <- commandArgs(TRUE)
 
-override <- function(argVal, defaultVal){
-  val <- NULL
-  if(is.null(argVal)){
-    val <- defaultVal
-  }else{
-    val <- argVal
-  }
-  return(val)
-}
 
-labeledEmails <- loadTrainSample('../GoodnSpam.txt')
-save(labeledEmails,file="../data/labeledEmails.Rda")
-unlabeledEmails <- loadUnlabeledSample('../fakeTestEmails.txt')
-save(unlabeledEmails,file="../data/unlabeledEmails.Rda")
+labeledEmails <- loadTrainSample('../data/GoodnSpam.txt')
+saveRDS(labeledEmails, file="../data/labeledEmails.Rda")
+
+
+## args <- miniParse(commandArgs(trailingOnly=TRUE),
+##                   list(inputFilePath="../data/testemails.fake.txt"))
+
+suppressPackageStartupMessages(library("argparse"))
+
+# create parser object
+parser <- ArgumentParser()
+
+# specify our desired options 
+# by default ArgumentParser will add an help option 
+
+parser$add_argument("-i", "--inputFilePath",
+                    default="../data/testemails.fake.txt",
+                    type="character",
+                    help="Text file of unlabeled emails")
+                                        
+# get command line options, if help option encountered print help and exit,
+# otherwise if options not found on command line then set defaults, 
+args <- parser$parse_args()
+print(args)
+
+# generate output file name for the test email
+unlabeledEmails <- loadUnlabeledSample(args$inputFilePath)
+outputFilePath <- paste(c("../data/testemails",
+                          getNickname(args$inputFilePath),
+                          "Rda"), collapse=".")
+
+print(paste(c("Creating ", outputFilePath), collapse=""))
+
+saveRDS(unlabeledEmails, file=outputFilePath)
 
